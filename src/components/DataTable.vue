@@ -160,7 +160,7 @@ onMounted(fetchComments);
       <table>
         <thead>
           <tr>
-            <th @click="sortBy('id')">ID</th>
+            <th @click="sortBy('id')">Id</th>
             <th @click="sortBy('email')">Email</th>
             <th>Body</th>
             <th>Edit</th>
@@ -188,7 +188,7 @@ onMounted(fetchComments);
         @click="prevPage"
         :disabled="currentPage === 1 || rowsPerPage === 'all'"
       >
-        <img class="pre-icon" alt="prevIcon" src="./assets/next-btn.svg" />
+        <img class="pre-icon" alt="prevIcon" src="../assets/next-btn.svg" />
         Prev
       </button>
       <button
@@ -197,19 +197,18 @@ onMounted(fetchComments);
         :disabled="!hasNextPage || rowsPerPage === 'all'"
       >
         Next
-        <img class="next-icon" alt="prevIcon" src="./assets/next-btn.svg" />
+        <img class="next-icon" alt="prevIcon" src="../assets/next-btn.svg" />
       </button>
     </div>
 
-    <!-- Edit Modal -->
     <Modal
       v-if="showModal && editingComment"
-      :id="editingComment!.id"
-      :email="editingComment!.email"
-      :body="editingComment!.body"
+      :id="editingComment.id"
+      :email="editingComment.email"
+      :body="editingComment.body"
       @save="saveEdit"
       @close="showModal = false"
-    />
+    ></Modal>
   </div>
 </template>
 

@@ -31,28 +31,27 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { defineProps, defineEmits } from "vue";
+<script setup>
+import { ref, defineProps, defineEmits } from "vue";
 
-const props = defineProps<{
-  id: number;
-  email: string | undefined;
-  body: string | undefined;
-}>();
+// Define props and emits
+const props = defineProps({
+  id: Number,
+  email: String,
+  body: String,
+});
+const emits = defineEmits(["save", "close"]);
 
-const emits = defineEmits<{
-  (e: "save", id: number, email: string, body: string): void;
-  (e: "close"): void;
-}>();
+// Initialize reactive variable
+const email = ref(props.email);
+const body = ref(props.body);
 
-const email = ref(props.email ?? "");
-const body = ref(props.body ?? "");
-
+// Function to handle saving the edited comment
 const save = () => {
   emits("save", props.id, email.value, body.value);
 };
 
+// Function to handle closing the modal
 const close = () => {
   emits("close");
 };
