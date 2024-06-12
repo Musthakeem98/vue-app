@@ -7,7 +7,6 @@ import "vue-toast-notification/dist/theme-sugar.css";
 createApp(App).mount("#app");
 
 App.use(VueToast, {
-  // Optional options
   position: "top-right",
 });
 

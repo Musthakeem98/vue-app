@@ -137,6 +137,9 @@ onMounted(fetchComments);
 
 <template>
   <div>
+    <div>
+      <h1>Comments DataTable</h1>
+    </div>
     <!-- Search and Pagination Controls -->
     <div class="search-bar">
       <input
